@@ -66,9 +66,25 @@ namespace ServiceReservasi_073
             return LokasiFull;
         }
 
-        public string EditPemesanan(string IDpemesanan, string NamaCustomer)
+        public string EditPemesanan(string IDPemesanan, string NamaCustomer, string No_telpon)
         {
-            throw new NotImplementedException();
+            string a = "gagal";
+            try
+            {
+                string sql = "update dbo.Pemesanan set Nama_Customer = '" + NamaCustomer + "', No_telpon = '" + No_telpon + "'" + "where ID_Reservasi = '" + IDPemesanan + "'";
+                connection = new SqlConnection(constring);
+                com = new SqlCommand(sql, connection);
+                connection.Open();
+                com.ExecuteNonQuery();
+                connection.Close();
+
+                a = "sukses";
+            }
+            catch (Exception es)
+            {
+                Console.WriteLine(es);
+            }
+            return a;
         }
 
         public string pemesanan(string IDPemesanan, string Namacustomer, string NoTelepon, int JumlahPemesanan, string IDLokasi)
