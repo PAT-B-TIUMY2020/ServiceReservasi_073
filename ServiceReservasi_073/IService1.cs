@@ -59,7 +59,7 @@ namespace ServiceReservasi_073
         [DataMember]
         public string JumlahPemesanan { get; set; }
         [DataMember]
-        public string IDLokasi { get; set; }
+        public string Lokasi { get; set; }
     }
 
 }
